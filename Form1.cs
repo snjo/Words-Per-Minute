@@ -53,10 +53,9 @@ namespace WordsPerMinute
                     {
                         labelResult.Text = "WPM: " + ((int)wpm).ToString().PadLeft(3);
                         labelTime.Text = "Time: " + TimeSpanHMS(timeInterval).ToString().Substring(3, 5);
-                        //this.Text = "Words Per Minute   debug: " + textBox1.Text.Length;
                     }
                     else
-                    {                        
+                    {
                         labelResult.Text = "WPM: ..."; // hide negative numbers and other errors at the start of typing
                     }
                 }
@@ -69,6 +68,9 @@ namespace WordsPerMinute
                     StartTest();
                 }
             }
+            int characters = textBox1.Text.Length;
+            int lines = textBox1.Text.Count(c => c.Equals('\n')) + 1; // each Enter press adds two to the text length, so remove 1 for each line.
+            labelCharacters.Text = "Characters: " + (characters-lines+1).ToString();
         }
 
         public TimeSpan TimeSpanHMS(TimeSpan time)

@@ -35,6 +35,7 @@
             labelTime = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             checkBox1 = new CheckBox();
+            labelCharacters = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -43,7 +44,7 @@
             textBox1.Location = new Point(12, 12);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(484, 136);
+            textBox1.Size = new Size(560, 136);
             textBox1.TabIndex = 0;
             textBox1.KeyDown += handleKeys;
             textBox1.KeyUp += updateResultKeyPress;
@@ -75,7 +76,8 @@
             labelTime.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             labelTime.AutoSize = true;
             labelTime.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelTime.Location = new Point(219, 155);
+            labelTime.ForeColor = SystemColors.GrayText;
+            labelTime.Location = new Point(187, 155);
             labelTime.Name = "labelTime";
             labelTime.Size = new Size(96, 21);
             labelTime.TabIndex = 3;
@@ -89,7 +91,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(332, 159);
+            checkBox1.Location = new Point(431, 159);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(141, 19);
             checkBox1.TabIndex = 4;
@@ -97,11 +99,24 @@
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
+            // labelCharacters
+            // 
+            labelCharacters.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            labelCharacters.AutoSize = true;
+            labelCharacters.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelCharacters.ForeColor = SystemColors.GrayText;
+            labelCharacters.Location = new Point(289, 155);
+            labelCharacters.Name = "labelCharacters";
+            labelCharacters.Size = new Size(107, 21);
+            labelCharacters.TabIndex = 5;
+            labelCharacters.Text = "Characters: 0";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(508, 189);
+            ClientSize = new Size(584, 189);
+            Controls.Add(labelCharacters);
             Controls.Add(checkBox1);
             Controls.Add(labelTime);
             Controls.Add(labelResult);
@@ -121,5 +136,6 @@
         private Label labelTime;
         private System.Windows.Forms.Timer timer1;
         private CheckBox checkBox1;
+        private Label labelCharacters;
     }
 }
