@@ -11,6 +11,8 @@ namespace WordsPerMinute
         private TimeSpan timeInterval = TimeSpan.Zero;
         char passwordDotSmall = '\u2022';// or "\u25cf"
         char passwordDotLarge = '\u25cf';
+        float wpm = 0;
+        float cpm = 0;
 
         public Form1()
         {
@@ -42,8 +44,6 @@ namespace WordsPerMinute
         {
             if (testStarted)
             {
-                float wpm = 0;
-                float cpm = 0;
                 if (timeStarted != DateTime.MinValue)
                 {
                     timeInterval = timeEnded - timeStarted;
@@ -57,6 +57,7 @@ namespace WordsPerMinute
                     else
                     {
                         labelResult.Text = "WPM: ..."; // hide negative numbers and other errors at the start of typing
+                        wpm = 0;
                     }
                 }
 
@@ -69,8 +70,15 @@ namespace WordsPerMinute
                 }
             }
             int characters = textBox1.Text.Length;
-            int lines = textBox1.Text.Count(c => c.Equals('\n')) + 1; // each Enter press adds two to the text length, so remove 1 for each line.
+            int lines = textBox1.Text.Count(c => c.Equals('\n')) + 1; // each Enter press adds 2 to the text length, so remove 1 for each line.
             labelCharacters.Text = "Characters: " + (characters-lines+1).ToString();
+
+            //test taskbar function
+
+            //TaskbarProgress.SetState(this.Handle, TaskbarProgress.TaskbarStates.Indeterminate);
+            
+            TaskbarProgress.SetValue(this.Handle, wpm, 100);
+            TaskbarProgress.SetState(this.Handle, TaskbarProgress.TaskbarStates.Error);
         }
 
         public TimeSpan TimeSpanHMS(TimeSpan time)
@@ -104,6 +112,7 @@ namespace WordsPerMinute
             labelTime.Text = "Time: 00:00";
             testStarted = false;
             textBox1.Focus();
+            wpm = 0;
         }
 
         private void clickReset(object sender, EventArgs e)
