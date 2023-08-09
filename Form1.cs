@@ -49,10 +49,18 @@ namespace WordsPerMinute
                     timeInterval = timeEnded - timeStarted;
                     cpm = 60 * (textBox1.Text.Length / (float)timeInterval.TotalSeconds);
                     wpm = cpm / 5;
+                    if (textBox1.Text.Length > 2)
+                    {
+                        labelResult.Text = "WPM: " + ((int)wpm).ToString().PadLeft(3);
+                        labelTime.Text = "Time: " + TimeSpanHMS(timeInterval).ToString().Substring(3, 5);
+                        //this.Text = "Words Per Minute   debug: " + textBox1.Text.Length;
+                    }
+                    else
+                    {                        
+                        labelResult.Text = "WPM: ..."; // hide negative numbers and other errors at the start of typing
+                    }
                 }
-                labelResult.Text = "WPM: " + ((int)wpm).ToString().PadLeft(3);
 
-                labelTime.Text = "Time: " + TimeSpanHMS(timeInterval).ToString().Substring(3, 5);
             }
             else
             {
@@ -93,6 +101,7 @@ namespace WordsPerMinute
             labelResult.Text = "WPM: ...";
             labelTime.Text = "Time: 00:00";
             testStarted = false;
+            textBox1.Focus();
         }
 
         private void clickReset(object sender, EventArgs e)
@@ -105,11 +114,12 @@ namespace WordsPerMinute
             if (!checkBox1.Checked)
             {
                 textBox1.UseSystemPasswordChar = true;
-
+                ResetTest();
             }
             else
             {
                 textBox1.UseSystemPasswordChar = false;
+                ResetTest();
             }
         }
     }

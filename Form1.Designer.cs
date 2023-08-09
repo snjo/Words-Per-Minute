@@ -66,9 +66,9 @@
             labelResult.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             labelResult.Location = new Point(93, 155);
             labelResult.Name = "labelResult";
-            labelResult.Size = new Size(68, 21);
+            labelResult.Size = new Size(71, 21);
             labelResult.TabIndex = 2;
-            labelResult.Text = "WPM: 0";
+            labelResult.Text = "WPM: ...";
             // 
             // labelTime
             // 
@@ -77,9 +77,9 @@
             labelTime.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             labelTime.Location = new Point(219, 155);
             labelTime.Name = "labelTime";
-            labelTime.Size = new Size(65, 21);
+            labelTime.Size = new Size(96, 21);
             labelTime.TabIndex = 3;
-            labelTime.Text = "Time: 0";
+            labelTime.Text = "Time: 00:00";
             // 
             // timer1
             // 
