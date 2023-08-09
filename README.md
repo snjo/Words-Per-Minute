@@ -1,4 +1,4 @@
 # Words-Per-Minute
 Shows the WPM count of freeform text entry
 
-![screenshot.png]
+![Screenshot](screenshot.png)
