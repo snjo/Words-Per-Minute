@@ -1,4 +1,6 @@
-﻿using System;
+﻿//From https://stackoverflow.com/questions/1295890/windows-7-progress-bar-in-taskbar-in-c
+
+using System;
 using System.Runtime.InteropServices;
 
 public static class TaskbarProgress
