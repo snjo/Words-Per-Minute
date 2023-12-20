@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBox1 = new TextBox();
             buttonReset = new Button();
             labelResult = new Label();
@@ -122,6 +123,7 @@
             Controls.Add(labelResult);
             Controls.Add(buttonReset);
             Controls.Add(textBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Words Per Minute";
             ResumeLayout(false);
